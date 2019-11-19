@@ -708,7 +708,7 @@ namespace Pspg
             // Compute component value
             component = std::complex<double>(dft_in[rank].x, dft_in[rank].y);
             component /= wavePtr->coeff;
-            UTIL_CHECK(abs(component.imag()) < 1.0E-7); // Did not satisfy 1.0E-8 accuracy due to float point accuracy
+            UTIL_CHECK(abs(component.imag()) < 1.0E-6); // Did not satisfy 1.0E-8 accuracy due to float point accuracy
             components_out[is] = component.real();
             ++is;
 
@@ -729,7 +729,7 @@ namespace Pspg
 
             // Compute component value
             component = std::complex<double>(dft_in[rank].x, dft_in[rank].y);
-            UTIL_CHECK(abs(wavePtr->coeff) > 1.0E-8);
+            UTIL_CHECK(abs(wavePtr->coeff) > 1.0E-6);
             component /= wavePtr->coeff;
             component *= sqrt(2.0);
             components_out [is] = component.real();
@@ -806,7 +806,7 @@ namespace Pspg
             // Compute component value
             component = std::complex<double>(dft[rank][0], dft[rank][1]);
             component /= wavePtr->coeff;
-            UTIL_CHECK(abs(component.imag()) < 1.0E-8);
+            UTIL_CHECK(abs(component.imag()) < 1.0E-6);
             components[is] = component.real();
             ++is;
 
@@ -827,7 +827,7 @@ namespace Pspg
 
             // Compute component value
             component = std::complex<double>(dft[rank][0], dft[rank][1]);
-            UTIL_CHECK(abs(wavePtr->coeff) > 1.0E-8);
+            UTIL_CHECK(abs(wavePtr->coeff) > 1.0E-6);
             component /= wavePtr->coeff;
             component *= sqrt(2.0);
             components[is] = component.real();
